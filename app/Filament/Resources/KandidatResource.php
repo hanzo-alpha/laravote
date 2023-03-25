@@ -18,14 +18,17 @@ class KandidatResource extends Resource
     protected static ?string $model = Kandidat::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $pluralLabel = 'Kandidat';
+    protected static ?string $pluralModelLabel = 'Kandidat';
+    protected static ?string $label = 'Kandidat';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('kandidat_uuid')
-                    ->required()
-                    ->maxLength(36),
+//                Forms\Components\TextInput::make('kandidat_uuid')
+//                    ->required()
+//                    ->maxLength(36),
                 Forms\Components\TextInput::make('no_kandidat')
                     ->required(),
                 Forms\Components\TextInput::make('nama_kandidat')
@@ -38,13 +41,13 @@ class KandidatResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('kandidat_uuid'),
+//                Tables\Columns\TextColumn::make('kandidat_uuid'),
                 Tables\Columns\TextColumn::make('no_kandidat'),
                 Tables\Columns\TextColumn::make('nama_kandidat'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+//                Tables\Columns\TextColumn::make('created_at')
+//                    ->dateTime(),
+//                Tables\Columns\TextColumn::make('updated_at')
+//                    ->dateTime(),
             ])
             ->filters([
                 //
@@ -57,11 +60,11 @@ class KandidatResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ManageKandidats::route('/'),
         ];
-    }    
+    }
 }
